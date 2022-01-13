@@ -13,16 +13,18 @@ namespace Service
         {
             using (var context = new StoreContext())
             {
-                return context.Products.ToList();
-                
+               
+                return context.Products.OrderBy(p => p.NumberInStore).ToList();
+                    
             }
         }
 
-        public void UpdateProduct(Product product)
+        public void UpdateProduct(int productid, int NewProdCount)
         {
             using (var context = new StoreContext())
             {
-                context.Update(product);
+                var product = context.Products.First(p => p.ProductId == productid);
+                product.NumberInStore = NewProdCount;
                 context.SaveChanges();
             }
         }

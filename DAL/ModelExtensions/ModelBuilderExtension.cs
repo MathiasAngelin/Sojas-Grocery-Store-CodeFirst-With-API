@@ -64,7 +64,7 @@ namespace DAL.ModelExtensions
 
 
             var dep1 = new Department { DepartmentId = 1, Name = "Dairy", EmployeeId = emp1.EmployeeId };
-            var dep2 = new Department { DepartmentId = 2, Name = "Bread", EmployeeId = emp1.EmployeeId };
+            var dep2 = new Department { DepartmentId = 2, Name = "Bread", EmployeeId = emp2.EmployeeId };
             var dep3 = new Department { DepartmentId = 3, Name = "Drinks", EmployeeId = emp3.EmployeeId };
             var dep4 = new Department { DepartmentId = 4, Name = "Meat", EmployeeId = emp5.EmployeeId };
             var dep5 = new Department { DepartmentId = 5, Name = "Other", EmployeeId = emp6.EmployeeId };
