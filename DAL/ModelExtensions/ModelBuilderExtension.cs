@@ -77,22 +77,35 @@ namespace DAL.ModelExtensions
             var prodep1 = new DepartmentProduct { DepartmentId = 1, ProductId = 1 };
             var prodep2 = new DepartmentProduct { DepartmentId = 1, ProductId = 2 };
             var prodep3 = new DepartmentProduct { DepartmentId = 1, ProductId = 3 };
-            var prodep4 = new DepartmentProduct { DepartmentId = 2, ProductId = 4 };
-            var prodep5 = new DepartmentProduct { DepartmentId = 2, ProductId = 5 };
+            var prodep4 = new DepartmentProduct { DepartmentId = 1, ProductId = 4 };
+            var prodep5 = new DepartmentProduct { DepartmentId = 1, ProductId = 5 };
             var prodep6 = new DepartmentProduct { DepartmentId = 2, ProductId = 6 };
-            var prodep7 = new DepartmentProduct { DepartmentId = 3, ProductId = 7 };
-            var prodep8 = new DepartmentProduct { DepartmentId = 3, ProductId = 8 };
-            var prodep9 = new DepartmentProduct { DepartmentId = 3, ProductId = 9 };
-            var prodep10 = new DepartmentProduct { DepartmentId = 4, ProductId = 1 };
-            var prodep11 = new DepartmentProduct { DepartmentId = 4, ProductId = 2 };
-            var prodep12 = new DepartmentProduct { DepartmentId = 4, ProductId = 3 };
-            var prodep13 = new DepartmentProduct { DepartmentId = 5, ProductId = 4 };
-            var prodep14 = new DepartmentProduct { DepartmentId = 5, ProductId = 5 };
-            var prodep15 = new DepartmentProduct { DepartmentId = 5, ProductId = 6 };
-            var prodep16 = new DepartmentProduct { DepartmentId = 5, ProductId = 7 };
+            var prodep7 = new DepartmentProduct { DepartmentId = 2, ProductId = 5 };
+            var prodep8 = new DepartmentProduct { DepartmentId = 2, ProductId = 7 };
+            var prodep9 = new DepartmentProduct { DepartmentId = 2, ProductId = 8 };
+            var prodep10 = new DepartmentProduct { DepartmentId = 2, ProductId = 9 };
+            var prodep11 = new DepartmentProduct { DepartmentId = 2, ProductId = 1 };
+            var prodep12 = new DepartmentProduct { DepartmentId = 3, ProductId = 2 };
+            var prodep13 = new DepartmentProduct { DepartmentId = 3, ProductId = 3 };
+            var prodep14 = new DepartmentProduct { DepartmentId = 3, ProductId = 4 };
+            var prodep15 = new DepartmentProduct { DepartmentId = 3, ProductId = 5 };
+            var prodep16 = new DepartmentProduct { DepartmentId = 3, ProductId = 6 };
+            var prodep17 = new DepartmentProduct { DepartmentId = 3, ProductId = 7 };
+            var prodep18 = new DepartmentProduct { DepartmentId = 4, ProductId = 8 };
+            var prodep19 = new DepartmentProduct { DepartmentId = 4, ProductId = 9 };
+            var prodep20 = new DepartmentProduct { DepartmentId = 4, ProductId = 1 };
+            var prodep21 = new DepartmentProduct { DepartmentId = 4, ProductId = 2 };
+            var prodep30 = new DepartmentProduct { DepartmentId = 4, ProductId = 3 };
+            var prodep23 = new DepartmentProduct { DepartmentId = 4, ProductId = 4 };
+            var prodep24 = new DepartmentProduct { DepartmentId = 5, ProductId = 5 };
+            var prodep25 = new DepartmentProduct { DepartmentId = 5, ProductId = 6 };
+            var prodep26 = new DepartmentProduct { DepartmentId = 5, ProductId = 7 };
+            var prodep27 = new DepartmentProduct { DepartmentId = 5, ProductId = 8 };
+            var prodep28 = new DepartmentProduct { DepartmentId = 5, ProductId = 9 };
+            var prodep29 = new DepartmentProduct { DepartmentId = 5, ProductId = 1 };
 
             modelBuilder.Entity<DepartmentProduct>().HasData(
-               prodep1, prodep2, prodep3, prodep4, prodep5, prodep6, prodep7, prodep8, prodep9, prodep10, prodep11, prodep12, prodep13, prodep14, prodep15, prodep16
+               prodep1, prodep2, prodep3, prodep4, prodep5, prodep6, prodep7, prodep8, prodep9, prodep10, prodep11, prodep12, prodep13, prodep14, prodep15, prodep16, prodep17, prodep18, prodep19, prodep20, prodep21, prodep30, prodep23, prodep24, prodep25, prodep26, prodep27, prodep28, prodep29
                 );
 
 
