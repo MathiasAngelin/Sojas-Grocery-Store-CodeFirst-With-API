@@ -20,7 +20,7 @@ namespace DAL
 
 
 
-        public ICollection<DepartmentProduct> DepartmentProduct { get; set; }
+        public virtual ICollection<DepartmentProduct> DepartmentProduct { get; set; }
         public DateTime DateOfLastCheck { get; set; }
 
         public int? EmployeeId { get; set; }

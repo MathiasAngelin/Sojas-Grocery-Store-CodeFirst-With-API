@@ -157,9 +157,9 @@ namespace DAL.ModelExtensions
 
             modelBuilder.Entity<Mentorship>()
              .HasOne(pt => pt.EMentoredFor)
-            .WithMany(p => p.MentoredBy) // <--
+            .WithMany(p => p.MentoredBy) 
              .HasForeignKey(pt => pt.MentoredForId)
-             .OnDelete(DeleteBehavior.Restrict); // see the note at the end
+             .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Mentorship>()
                 .HasOne(pt => pt.EMentoredBy)

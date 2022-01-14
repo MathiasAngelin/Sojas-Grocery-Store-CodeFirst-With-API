@@ -40,24 +40,20 @@ namespace Api.Controllers
 
 
         [HttpGet("list")]
-        public List<Product> Listed(string department, int count)
+        public virtual List<ProdWithNumConectToDepDTO> Listed(string department, int count)
         {
-            var result = new List<ProductDTO>();
-            var service = new ProductService();
-            foreach (var product in service.ListProductNameAndStock())
+            var result = new List<ProdWithNumConectToDepDTO>();
+            var service = new ProductService();  
+            foreach(var product in service.Lista(department, count))
             {
                 result.Add(
-                    new ProductDTO()
+                    new ProdWithNumConectToDepDTO
                     {
                         ProductName = product.ProductName,
                         NumberInStore = product.NumberInStore,
-                        status = "Hej"
-                    }
-                    );
+                    });
             }
-           
-            return service.List(department,count);
-           
+            return result;
         }
 
         [HttpPut("update")]

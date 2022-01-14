@@ -14,26 +14,53 @@ namespace Service
         {
             using (var context = new StoreContext())
             {
-               
                 return context.Products.OrderBy(p => p.NumberInStore).ToList();
-                    
             }
         }
 
-        public List<Product> List(string department, int count)
+        public List<Product> Lista(string depName, int maxcount)
         {
+            var result = new List<Product>();
             using (var context = new StoreContext())
             {
-                //var depname = context.Products.Select(p => p.DepartmentProduct.Select(p => p.Department.Name == department));
-                //var prodcount = context.Products.Select(p => p.NumberInStore == count);
+                int DepInt = 0;
+                var DepPlaceHold = context.Departments
+                    .Where(d => d.Name == depName)
+                    ;
 
-                return context.Products
-                    .Where(p => p.NumberInStore <= count)
+                DepInt = DepPlaceHold.Select(d => d.DepartmentId).FirstOrDefault();
+                var departprod = context.DepartmentProducts
+                    .Where(d => d.DepartmentId == DepInt)
                     .ToList();
+
+                foreach (var item in departprod)
+                {
+                    List<Product> productFilter = context.Products
+                        .Where(x => x.Barcode == item.ProductId)
+                        .Where(p => p.NumberInStore <= maxcount)
+                        .ToList();
+
+                    foreach (Product Product in productFilter)
+                        result.Add(new Product
+                        {
+                            Barcode = Product.Barcode,
+                            ProductName = Product.ProductName,
+                            NumberInStore = Product.NumberInStore,
+                            ListOfIngredients = Product.ListOfIngredients,
+                            Price = Product.Price,
+                            ExpirationDate = Product.ExpirationDate,
+                            DateOfLastCheck = Product.DateOfLastCheck,
+                            CampainId = Product.CampainId,
+                            PartOfCampain = Product.PartOfCampain,
+                            DepartmentProduct = Product.DepartmentProduct,
+                            EmployeeId = Product.EmployeeId,
+                            Employees = Product.Employees,
+
+                        });
+                }
+                return result;
             }
         }
-
-
 
         public void UpdateProduct(int productid, int NewProdCount)
         {

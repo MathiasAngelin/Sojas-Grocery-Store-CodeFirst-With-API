@@ -9,8 +9,8 @@ namespace DAL
     public class DepartmentProduct
     {
         public int DepartmentId { get; set; }
-        public Department Department { get; set; }
+        public virtual Department Department { get; set; }
         public int ProductId { get; set; }  
-        public Product Product { get; set; }
+        public virtual Product Product { get; set; }
     }
 }
