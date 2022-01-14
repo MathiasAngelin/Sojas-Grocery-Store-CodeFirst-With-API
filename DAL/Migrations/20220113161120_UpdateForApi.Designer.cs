@@ -4,6 +4,7 @@ using DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DAL.Migrations
 {
     [DbContext(typeof(StoreContext))]
-    partial class StoreContextModelSnapshot : ModelSnapshot
+    [Migration("20220113161120_UpdateForApi")]
+    partial class UpdateForApi
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -373,11 +375,11 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("DAL.Product", b =>
                 {
-                    b.Property<int>("Barcode")
+                    b.Property<int>("ProductId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Barcode"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProductId"), 1L, 1);
 
                     b.Property<int?>("CampainId")
                         .HasColumnType("int");
@@ -405,7 +407,7 @@ namespace DAL.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Barcode");
+                    b.HasKey("ProductId");
 
                     b.HasIndex("CampainId");
 
@@ -416,7 +418,7 @@ namespace DAL.Migrations
                     b.HasData(
                         new
                         {
-                            Barcode = 1,
+                            ProductId = 1,
                             CampainId = 1,
                             DateOfLastCheck = new DateTime(2022, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EmployeeId = 2,
@@ -428,7 +430,7 @@ namespace DAL.Migrations
                         },
                         new
                         {
-                            Barcode = 2,
+                            ProductId = 2,
                             DateOfLastCheck = new DateTime(2021, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EmployeeId = 1,
                             ExpirationDate = new DateTime(2024, 5, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -439,7 +441,7 @@ namespace DAL.Migrations
                         },
                         new
                         {
-                            Barcode = 3,
+                            ProductId = 3,
                             DateOfLastCheck = new DateTime(2020, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EmployeeId = 2,
                             ExpirationDate = new DateTime(2025, 11, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -450,7 +452,7 @@ namespace DAL.Migrations
                         },
                         new
                         {
-                            Barcode = 4,
+                            ProductId = 4,
                             DateOfLastCheck = new DateTime(2021, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EmployeeId = 2,
                             ExpirationDate = new DateTime(2025, 2, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -461,7 +463,7 @@ namespace DAL.Migrations
                         },
                         new
                         {
-                            Barcode = 5,
+                            ProductId = 5,
                             CampainId = 1,
                             DateOfLastCheck = new DateTime(2021, 5, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EmployeeId = 3,
@@ -473,7 +475,7 @@ namespace DAL.Migrations
                         },
                         new
                         {
-                            Barcode = 6,
+                            ProductId = 6,
                             DateOfLastCheck = new DateTime(2021, 6, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EmployeeId = 4,
                             ExpirationDate = new DateTime(2022, 2, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -484,7 +486,7 @@ namespace DAL.Migrations
                         },
                         new
                         {
-                            Barcode = 7,
+                            ProductId = 7,
                             DateOfLastCheck = new DateTime(2021, 7, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EmployeeId = 5,
                             ExpirationDate = new DateTime(2023, 5, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
@@ -495,7 +497,7 @@ namespace DAL.Migrations
                         },
                         new
                         {
-                            Barcode = 8,
+                            ProductId = 8,
                             CampainId = 1,
                             DateOfLastCheck = new DateTime(2021, 8, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EmployeeId = 2,
@@ -507,7 +509,7 @@ namespace DAL.Migrations
                         },
                         new
                         {
-                            Barcode = 9,
+                            ProductId = 9,
                             CampainId = 1,
                             DateOfLastCheck = new DateTime(2021, 9, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             EmployeeId = 1,

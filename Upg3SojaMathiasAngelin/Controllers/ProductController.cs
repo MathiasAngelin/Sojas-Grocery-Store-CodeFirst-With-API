@@ -15,19 +15,49 @@ namespace Api.Controllers
         [HttpGet("count")]
         public List<ProductDTO> ListProductNAndS()
         {
+            string prodstatus = "";
             var result = new List<ProductDTO>();
             var service = new ProductService(); 
+            foreach (var product in service.ListProductNameAndStock())
+            {
+                if (product.NumberInStore > 3)
+                    prodstatus = "Ok";
+                else if (product.NumberInStore < 1)
+                    prodstatus = "Slut";
+                else prodstatus = "Snart slut";
+
+                result.Add(
+                    new ProductDTO()
+                    {
+                        ProductName = product.ProductName,
+                        NumberInStore = product.NumberInStore,
+                        status = prodstatus
+                    }
+                    );
+            }
+            return result;
+        }
+
+
+        [HttpGet("list")]
+        public List<Product> Listed(string department, int count)
+        {
+            var result = new List<ProductDTO>();
+            var service = new ProductService();
             foreach (var product in service.ListProductNameAndStock())
             {
                 result.Add(
                     new ProductDTO()
                     {
                         ProductName = product.ProductName,
-                        NumberInStore = product.NumberInStore
+                        NumberInStore = product.NumberInStore,
+                        status = "Hej"
                     }
                     );
             }
-            return result;
+           
+            return service.List(department,count);
+           
         }
 
         [HttpPut("update")]

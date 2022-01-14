@@ -4,5 +4,6 @@
     {
         public string ProductName { get; set; }
         public int NumberInStore { get; set; }
+        public string status { get; set; } 
     }
 }

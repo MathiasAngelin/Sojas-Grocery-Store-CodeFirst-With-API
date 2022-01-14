@@ -22,7 +22,7 @@ namespace Api.Controllers
                     new DepartmentEmailDTO()
                     {
                         DeparmentName = department.Name,
-                        Responsible = department.Employees.FirstName,
+                      
                         Emails = department.Employees.Emails.Select(m => m.EmailAddress).ToList()
                     });
                      

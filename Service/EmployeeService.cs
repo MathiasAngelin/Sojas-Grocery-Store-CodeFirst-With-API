@@ -11,13 +11,14 @@ namespace Service
     public class EmployeeService
     {
 
-        public List<Employee> List()
+        public List<Employee> ListEmployeeWithResponsability()
         {
             using (var context = new StoreContext())
             {
-                return context.Employees
+                var res = context.Employees
                     .Include(x => x.Departments)
                     .ToList();
+                return res;
 
             }
         }

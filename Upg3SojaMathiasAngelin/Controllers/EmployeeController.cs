@@ -8,82 +8,42 @@ using Upg3SojaMathiasAngelin.DTO;
 namespace Upg3SojaMathiasAngelin.Controllers
 {
 
-    [Route("person")]
+    [Route("Employee")]
     [ApiController]
     public class EmployeeController : ControllerBase
     {
         [HttpGet]
-        public List<EmployeeComplexDTO> List()
+        public List<ComplexEmployeeWCountDTO> ListDepWithResponsability2()
         {
-            var result = new List<EmployeeComplexDTO>();
+            var ResultFromDTO1 = new List<ComplexEmployeeDTO>();
             var service = new EmployeeService();
+            var numOfEmployees = service.ListEmployeeWithResponsability().Count;
 
-            foreach (var employee in service.List())
+            foreach (var employee in service.ListEmployeeWithResponsability())
             {
 
-                result.Add(
-                    new EmployeeComplexDTO()
+                ResultFromDTO1.Add(
+                    new ComplexEmployeeDTO()
                     {
                         Name = $"{employee.FirstName} {employee.LastName}",
-                        IsResponsible = true
+                        IsResponsible = employee.Departments.Count != 0 ? true : false,
 
-                    }) ;       
+                    });
             }
 
-            return result;
+            var NestedResults = new List<ComplexEmployeeWCountDTO>();
+            NestedResults.Add(
+                new ComplexEmployeeWCountDTO()
+                {
+                    NumOfEmployees = numOfEmployees,
+                    Employees = ResultFromDTO1
+
+                });
+
+            return NestedResults;
         }
-           
-        }
 
-
-
-
-
-
-
-
-
-    ////Lägger till "Person/{Id PÅ employee}"
-    //[HttpGet("{EmployeeID}")]
-    //public Employee GetEmployee(int EmployeeId)
-    //{
-    //    var service = new EmployeeService();
-    //    return service.GetEmployee(EmployeeId);
-    //}
-
-    //[HttpPost]
-    //public void Create(EmployeeDTO employee)
-    //{
-    //    var service = new EmployeeService();
-    //    service.CreateEmployee(
-    //        new Employee()
-    //        {
-    //            FirstName = employee.FirstName,
-    //            LastName = employee.LastName,
-    //            Personnumber = employee.Personnumber
-    //        });
-    //}
-
-    //[HttpPut("{EmployeeId")]
-    //public void Update(int employeeid, EmployeeDTO employee)
-    //{
-    //    var service = new EmployeeService();
-    //    service.UpdateEmployee(
-    //        new Employee()
-    //        {
-    //            FirstName = employee.FirstName,
-    //            LastName = employee.LastName,
-    //            Personnumber = employee.Personnumber
-    //        });
-    //}
-
-    //[HttpDelete("{EmployeeId}")]
-    //public void Delete(int employeeId)
-    //{
-    //    var service = new EmployeeService();
-    //    service.DeleteEmployee(employeeId);
-
-    //}
+    }
 
 }
 
