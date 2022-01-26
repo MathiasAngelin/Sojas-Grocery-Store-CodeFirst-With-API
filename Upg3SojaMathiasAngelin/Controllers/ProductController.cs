@@ -57,10 +57,16 @@ namespace Api.Controllers
         }
 
         [HttpPut("update")]
-        public void UpdateProduct(int productId,int newProdcount)
+        public void UpdateThisProduct(UpdateProdWithCountDTO update)
         {
+            int productid = 0;
+            int newProdcount = 0;
+
+            productid = update.productid;
+            newProdcount = update.newProdcount;
+
             var service = new ProductService();
-            service.UpdateProduct(productId, newProdcount);
+            service.UpdateProduct(productid, newProdcount);
         }
     }
 }

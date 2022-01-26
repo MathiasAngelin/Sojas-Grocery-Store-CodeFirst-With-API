@@ -10,6 +10,7 @@ namespace DAL
 {
     public class StoreContext : DbContext
     {
+        
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Department> Departments { get; set; }
         public DbSet<Product> Products { get; set; }
@@ -18,6 +19,7 @@ namespace DAL
         public DbSet<Telephone> Telephones { get; set; }
         public DbSet<DepartmentProduct> DepartmentProducts { get; set; }
 
+       
 
         protected override void OnConfiguring(DbContextOptionsBuilder builder)
         {

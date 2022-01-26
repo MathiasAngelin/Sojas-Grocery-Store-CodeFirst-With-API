@@ -15,11 +15,20 @@ namespace Service
         {
             using (var context = new StoreContext())
             {
+               
                 var res = context.Employees
                     .Include(x => x.Departments)
                     .ToList();
                 return res;
 
+            }
+        }
+
+        public int NumOfEmloyees()
+        {
+            using (var context = new StoreContext())
+            {
+                return context.Employees.Count();
             }
         }
       

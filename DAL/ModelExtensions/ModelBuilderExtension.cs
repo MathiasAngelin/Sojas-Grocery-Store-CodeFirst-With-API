@@ -44,7 +44,7 @@ namespace DAL.ModelExtensions
                );
 
 
-            var camp1 = new Campain { CampainId = 1, Pricedrop = 0.75F };
+            var camp1 = new Campain { CampainId = 1, Pricedrop = 0.75f };
             modelBuilder.Entity<Campain>().HasData(
                 camp1
                 );
@@ -162,6 +162,10 @@ namespace DAL.ModelExtensions
 
             modelBuilder.Entity<Employee>()
                 .HasIndex(e => e.Personnumber)
+                .IsUnique();
+
+            modelBuilder.Entity<Email>()
+                .HasIndex(e => e.EmailAddress)
                 .IsUnique();
 
 

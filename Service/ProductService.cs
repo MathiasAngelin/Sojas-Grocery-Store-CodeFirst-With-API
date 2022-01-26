@@ -62,12 +62,12 @@ namespace Service
             }
         }
 
-        public void UpdateProduct(int productid, int NewProdCount)
+        public void UpdateProduct(int productid, int newProdcount)
         {
             using (var context = new StoreContext())
             {
                 var product = context.Products.First(p => p.Barcode == productid);
-                product.NumberInStore = NewProdCount;
+                product.NumberInStore = newProdcount;
                 context.SaveChanges();
             }
         }

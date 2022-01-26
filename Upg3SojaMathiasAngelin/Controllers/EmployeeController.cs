@@ -17,7 +17,7 @@ namespace Upg3SojaMathiasAngelin.Controllers
         {
             var ResultFromDTO1 = new List<ComplexEmployeeDTO>();
             var service = new EmployeeService();
-            var numOfEmployees = service.ListEmployeeWithResponsability().Count;
+            var numOfEmployees = service.NumOfEmloyees();
 
             foreach (var employee in service.ListEmployeeWithResponsability())
             {
